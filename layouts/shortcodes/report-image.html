@@ -3,7 +3,7 @@
 {{ $caption := .Get "caption" }}
 <figure style="margin: 1.5em 0; text-align: center;">
   <img
-    src="{{ printf "/%s" $src | relURL }}"
+    src="{{ $src | relURL }}"
     alt="{{ $alt }}"
     style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);"
   />
