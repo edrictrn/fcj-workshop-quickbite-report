@@ -1,126 +1,98 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "AWS Security Agent, SLA/Monitoring & Cloud Certification"
+date: 2026-07-30
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+
+# Summary Report: “AWS Security Agent, SLA/Monitoring & Cloud Certification Workshop”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Introduce the new **AWS Security Agent** service to automate Pentesting, Code Reviews, and Design Reviews.
+- Share system operations mindset centered on **Service Level Agreements (SLAs)** and **Effective Monitoring** from an enterprise perspective.
+- Provide a clear roadmap, exam structure, and practical tips to pass the **AWS Certified Cloud Practitioner (CLF-C02)** exam.
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Thinh** – DevSecOps Engineer @ 2Solutions & FirstFlow AI
+- **Son** – Infrastructure Support Engineer @ Endava (Former Student Builder @ UIT)
+- **Huy** – AWS Cloud Enthusiast & Speaker
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### 1. AWS Security Agent & Security Automation (Presenter: Thinh)
+- **Solving Real-World Pain Points**: Traditional pentesting teams cost between $5,000 and $20,000 per project, take considerable time, and heavily depend on individual skill sets.
+- **Core Features**:
+  - **Design Security Review**: Analyzes Markdown, Doc, or Terraform files against standards like PCI-DSS and the AWS Well-Architected Framework (Free tier: 200 reviews/month).
+  - **Code Review**: Integrates directly with GitHub/GitLab via Webhooks to scan code and suggest automated fixes on Pull Requests (Free tier: 1,000 PR reviews/month).
+  - **Penetration Testing (Pentest)**: Simulates real attack vectors from Front-end to Back-end, generating detailed finding reports with step-by-step reproduction steps (Free trial: 2 months, 400 task-hours/month).
+- **Technical Limitations**: Currently unable to bypass MFA (SMS/OTP prompts) and mutual TLS (mTLS) authentication.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### 2. SLA & Enterprise Monitoring (Presenter: Son)
+- **Importance of SLAs (Service Level Agreement)**: Formal commitments to customers regarding service quality. Failing SLAs (exceeding allowed downtime) leads to severe financial penalties.
+- **Holistic Monitoring Mindset**:
+  - **Healthy Infra ≠ Healthy User Experience**: A green infrastructure status (CPU/RAM) does not guarantee that users aren't experiencing application errors or broken workflows.
+  - **Monitoring Pyramid**: Multi-layered observability covering Cloud Providers, Infrastructure (EC2/RDS), Applications (App/DB Connections), up to end-user Customer Journeys.
+  - **Risk Response Process (SOP & SNS)**: Utilizing AWS CloudWatch Dashboards/Alarms paired with Amazon SNS for immediate alerting, alongside logging for continuous improvement.
 
-#### Transitioning to modern application architecture – Microservices
-
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### 3. Path to AWS Cloud Practitioner Certification (Presenter: Huy)
+- **CLF-C02 Exam Overview**:
+  - Format: 65 questions (50 scored), 90 minutes (+30 minutes ESL accommodation = 120 minutes total), Passing Score: 700/1000, 3-year validity, Fee: $100.
+  - 4 Domains: Cloud Concepts (24%), Security & Compliance (30%), Cloud Technology & Services (34%), Billing & Pricing (12%).
+- **Core Knowledge Areas**:
+  - **6 Pillars of the Well-Architected Framework** & **AWS Cloud Adoption Framework (CAF)**.
+  - **Shared Responsibility Model**: Clear boundary between security "OF the Cloud" (AWS) vs. "IN the Cloud" (Customer).
+  - **EC2 Pricing Models**: On-Demand, Reserved Instances (up to 72% savings), and Spot Instances (up to 90% savings but subject to 2-minute interruption notices).
+- **Exam Tips & Tricks**:
+  - **Keyword Mapping**: Spotting clues quickly (e.g., *Decouple/Microservices* → SQS; *List cost/Interruptible* → Spot Instance).
+  - **Elimination Technique**: Instantly discard 2 irrelevant options to boost correct selection probability to 50/50.
+  - **Utilize Flag for Review**: Tag difficult questions to review later without losing time momentum.
 
 ### Key Takeaways
 
 #### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- **Security-First Approach**: Embed security early during the planning phase (Design Review) and integrate automated checking tools into CI/CD pipelines.
+- **Customer-Oriented Monitoring**: Focus on user experience metrics rather than solely relying on raw server performance metrics.
 
 #### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- **Multi-Agent Automation**: Leverage AWS Bedrock & Multi-agent frameworks to automate vulnerability scanning and code auditing.
+- **High Availability & Monitoring Architecture**: Build 3-tier best-practice architectures on AWS (ALB, EC2 in Multi-AZ, RDS) complemented by CloudWatch Alarms monitoring DB connections.
 
 #### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- **Doc-First Approach**: Document every infrastructure change and architectural decision thoroughly prior to deployment.
+- **Invest in Skill Standardization (Cloud Certification)**: Build structured foundations through AWS certifications to enhance enterprise-grade system design capabilities.
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- **Integrate AWS Security Agent**: Test Code Review capabilities on personal or project GitHub/GitLab repositories.
+- **Build Custom CloudWatch Alarms**: Configure alerts for critical indicators (Database Connections, HTTP Status 5xx) to deliver alerts via Email/SMS using SNS.
+- **Practice & Register for CLF-C02**: Apply Keyword Mapping and Elimination techniques to successfully pass the foundational AWS certification exam.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+The workshop offered practical industry insights from speakers with rich experience working in enterprise and global tech environments:
 
 #### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Absorbed practical DevSecOps security mindsets and cutting-edge AI security tools from Thinh.
+- Gained realistic operational perspectives on enterprise environments (NOC/SOC, SLA, Risk Management) from Son's engaging presentation.
+- Acquired a complete roadmap and proven tips for AWS certification from Huy.
 
 #### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Watched live demonstrations of Domain Verification, GitHub Integration, Pentesting, and reading Security Findings reports.
+- Participated in an incident response demo simulating database connection failures on AWS CloudWatch Dashboards & SNS.
 
 #### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+- Explored modern AWS services including **AWS Security Agent**, **AWS Bedrock**, **Amazon CloudWatch**, **Amazon SNS**, and the **AWS Well-Architected Tool**.
 
 #### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+- Exchanged real-world stories regarding IT careers, overcoming challenges in Layer-1 Support/Infra roles, and career progression in Cloud engineering.
 
 #### Some event photos
-*Add your event photos here*  
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+{{< report-image src="images/events/aws-security-agent-sla-monitoring-cloud-cert.jpg" alt="Speaker presenting the SLA and enterprise monitoring session at the AWS Security Agent, SLA/Monitoring & Cloud Certification workshop" caption="Son presenting the “healthy infrastructure vs. happy user” monitoring gap during the SLA/Monitoring session." >}}
+
+> Overall, the event delivered comprehensive knowledge spanning automated security, enterprise SLA-driven operations, and structured certification pathways for Cloud skills.

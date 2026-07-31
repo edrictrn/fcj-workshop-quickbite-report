@@ -1,58 +1,35 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu kiến trúc AWS Serverless và Event-Driven: Amazon EventBridge, Amazon SQS, Amazon SNS, và AWS Lambda + Amazon SES cho email.
+* Thiết kế (chưa triển khai) một luồng thông báo bất đồng bộ cho sự kiện `OrderCreated` và `OrderStatusChanged` của QuickBite.
+* Đánh giá xem hệ thống demo hiện tại (EC2/RDS/S3/CloudWatch) có thực sự cần Lambda + SES hay không, hay Mailpit vẫn là lựa chọn phù hợp ở giai đoạn này.
+* Ghi lại phần nghiên cứu thành một ghi chú thiết kế nội bộ, đề xuất kiến trúc cho tương lai.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu khái niệm Serverless, mô hình thực thi AWS Lambda và IAM execution role <br> - **Nghiên cứu Amazon SES:** <br>&emsp; + Đọc về SES Sandbox, xác thực sender identity và sending policy <br>&emsp; + So sánh SES với Mailpit cho quy mô demo một môi trường duy nhất hiện tại của QuickBite | 06/07/2026 | 06/07/2026 | - <https://cloudjourney.awsstudygroup.com/> <br> - Tài liệu AWS SES |
+| 3 | - **Nghiên cứu Event-Driven Pattern:** <br>&emsp; + Tìm hiểu EventBridge (định tuyến theo rule), SQS (durable queue) và SNS (fan-out) <br>&emsp; + Phác thảo luồng `OrderCreated` → EventBridge → SQS → Lambda → SES như một bài tập thiết kế | 07/07/2026 | 07/07/2026 | - Tài liệu AWS Lambda <br> - Tài liệu AWS EventBridge |
+| 4 | - **Các Vấn Đề Thiết Kế Cần Ghi Nhận:** <br>&emsp; + Phân tích retry/backoff, idempotency, thứ tự xử lý event, dead-letter queue và versioning schema cho luồng đề xuất <br>&emsp; + Kết luận đây là hạng mục cho roadmap tương lai, chưa cần thiết cho bản demo năng lực cố định hiện tại | 08/07/2026 | 08/07/2026 | - Tài liệu AWS EventBridge DLQ |
+| 5 | - **Viết Ghi Chú Thiết Kế:** <br>&emsp; + Soạn ghi chú ngắn về event-driven architecture, giải thích mô hình này có thể tách email, báo cáo và thông báo khỏi request tạo đơn như thế nào <br>&emsp; + Nêu rõ EventBridge, SQS, Lambda và SES **chưa được triển khai** trong bản demo QuickBite | 09/07/2026 | 09/07/2026 | - QuickBite README.md |
+| 6 | - **Rà soát & Hoàn thiện:** <br>&emsp; + Rà soát ghi chú thiết kế bằng cả tiếng Anh và tiếng Việt <br>&emsp; + Xác nhận hệ thống thực tế vẫn dùng Mailpit cho email local/demo, giữ đúng tính trung thực của báo cáo | 10/07/2026 | 10/07/2026 | - Bản nháp ghi chú thiết kế |
 
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Nền Tảng Điện Toán Đám Mây AWS:**
+  * Nghiên cứu các khái niệm Serverless và event-driven (EventBridge, SQS, SNS, Lambda, SES) và cách chúng có thể tách các tác vụ phụ khỏi request tạo đơn hàng.
+  * Phân tích trên giấy các phần khó của thiết kế bất đồng bộ: retry, idempotency, thứ tự xử lý, dead-letter queue và versioning schema.
+  * Kết luận Lambda + SES là **hạng mục cho roadmap tương lai** của QuickBite, chưa cần thiết cho bản demo một môi trường hiện tại; Mailpit vẫn là công cụ mô phỏng email đã triển khai cho đơn hàng và cập nhật trạng thái.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Phát Triển Dự Án QuickBite:**
+  * Ghi lại đề xuất thiết kế `OrderCreated → EventBridge → SQS → Lambda → SES` như một hạng mục roadmap tương lai, bằng cả tiếng Anh và tiếng Việt.
+  * Giữ đúng tính trung thực của báo cáo: chưa có Lambda function hay SES sender identity nào thực sự được tạo cho bản demo này.

@@ -1,57 +1,35 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Research AWS Serverless and Event-Driven concepts: Amazon EventBridge, Amazon SQS, Amazon SNS, and AWS Lambda + Amazon SES for email.
+* Design (without deploying) an asynchronous notification path for QuickBite's `OrderCreated` and `OrderStatusChanged` events.
+* Evaluate whether the current EC2/RDS/S3/CloudWatch demo actually needs Lambda + SES, or whether Mailpit remains the right fit for this stage.
+* Write up the research as an internal design note documenting the proposed future architecture.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Learn Serverless concepts, AWS Lambda execution models, and IAM execution roles <br> - **Amazon SES Research:** <br>&emsp; + Read about SES Sandbox, sender identity verification, and sending policies <br>&emsp; + Compare SES against Mailpit for QuickBite's current single-demo-environment scope | 06/07/2026 | 06/07/2026 | - <https://cloudjourney.awsstudygroup.com/> <br> - AWS SES Docs |
+| 3 | - **Event-Driven Pattern Research:** <br>&emsp; + Study Amazon EventBridge rule-based routing, Amazon SQS durable queues, and Amazon SNS fan-out <br>&emsp; + Sketch an `OrderCreated` → EventBridge → SQS → Lambda → SES flow as a design exercise | 07/07/2026 | 07/07/2026 | - AWS Lambda Docs <br> - AWS EventBridge Docs |
+| 4 | - **Design Problems Worth Documenting:** <br>&emsp; + Work through retries/backoff, idempotency, event ordering, dead-letter queues, and event schema versioning for the proposed flow <br>&emsp; + Decide these are future-roadmap items, not required for the current fixed-capacity demo | 08/07/2026 | 08/07/2026 | - AWS EventBridge DLQ Docs |
+| 5 | - **Write the Design Note:** <br>&emsp; + Draft a short internal note on event-driven architecture, explaining how it could decouple email, reporting, and notifications from order creation <br>&emsp; + State explicitly that EventBridge, SQS, Lambda, and SES are **not deployed** in the QuickBite demo | 09/07/2026 | 09/07/2026 | - QuickBite README.md |
+| 6 | - **Review & Wrap Up:** <br>&emsp; + Proofread the design note in English and Vietnamese <br>&emsp; + Confirm the deployed system still uses Mailpit for local/demo email, keeping the report's evidence honest | 10/07/2026 | 10/07/2026 | - Design note draft |
 
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **AWS & Cloud Foundation:**
+  * Studied Serverless and event-driven concepts (EventBridge, SQS, SNS, Lambda, SES) and how they could decouple secondary tasks from the order-creation request.
+  * Worked through the harder parts of async design on paper: retries, idempotency, ordering, dead-letter queues, and schema versioning.
+  * Concluded that Lambda + SES is a **future-roadmap item** for QuickBite, not something the current single-environment demo needs; Mailpit remains the deployed mock for order and status emails.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **QuickBite Project Development:**
+  * Documented an explicit `OrderCreated → EventBridge → SQS → Lambda → SES` design proposal as a future-roadmap note, in both English and Vietnamese.
+  * Kept the report's evidence honest: no Lambda function or SES sender identity was actually created for this demo.

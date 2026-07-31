@@ -6,39 +6,36 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
+> In this section, you need to list and describe in detail the events you have attended during your internship or work period.
 > 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
+> Each event should be presented in the format of Event 1, Event 2, Event 3..., along with the following information:
 > * Event name
-> * Date and time
+> * Time / Date
 > * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
+> * Your role in the event (attendee, organizing staff, speaker, etc.)
+> * Brief description of the main content and activities during the event
+> * Results or value gained (key takeaways, new skills, contributions to the team/project)
+> * This listing clearly demonstrates your active participation, as well as the soft skills and practical experience you have accumulated through each event.
 
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
 
-### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+During my internship, I had the opportunity to attend 2 events. Each event was a memorable experience filled with new, practical, and valuable knowledge, alongside great gifts and wonderful moments.
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+### [Event 1](4.1-Event1/)
+&emsp;**Event Name:** AWS Security Agent, SLA/Monitoring & Cloud Certification Workshop
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+&emsp;**Date:** July 30, 2026
 
-&emsp;**Role:** Attendee  
+&emsp;**Location:** Office / Workshop Hall
+
+&emsp;**Role:** Attendee
 
 ---
 
-### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+### [Event 2](4.2-Event2/)
+&emsp;**Event Name:** FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Date:** July 25, 2026
 
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
+&emsp;**Location:** Ho Chi Minh City
 
-&emsp;**Role:** Attendee  
+&emsp;**Role:** Attendee

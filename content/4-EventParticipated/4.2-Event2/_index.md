@@ -1,126 +1,104 @@
 ---
-title: "Event 2"
-date: 2024-01-01
-weight: 1
+title: "FCAJ x Agentic AI Build Week"
+date: 2026-07-25
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “FCAJ x Agentic AI Build Week: Show Up. Build. Pitch. WIN!”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Provide a practical Hackathon arena for builders to collaborate and turn AI ideas into fully functional products
+- Inspire the next generation of young talent to shift their mental model and leverage Agentic AI for innovation
+- Showcase winning products, key technical architectures on AWS infrastructure, and real-world applications
+- Share actionable insights on project management, teamwork dynamics, and effective pitching strategies in Hackathons
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Joseph Marazota** – Head of Technology, Asia
+- **Nguyễn Gia Hưng** – Head of Solutions Architecture, Vietnam
+- **One Team** – 1st Place Winner (AWS Track)
+- **Signal Scout** – 2nd Place Winner (AWS Track)
+- **Team Plan** – Participating Hackathon Team
+- **Team 3K** – Participating Hackathon Team
+- **Six Pillars** – Participating Hackathon Team
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Opening & Inspirational Keynote
+- **A New Development Mindset**: Transitioning from traditional release cycles (months per release) to the Agentic AI era featuring continuous automated deployment.
+- **Roles of AI and Humans**: Smart AI Agents help orchestrate massive infrastructure (such as millions of fulfillment robots) while keeping humans in the loop for key decisions.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### Team 1: One Team (1st Place Winner) – Conversational AI Ordering Agent
+- **Problem**: Forcing customers to switch to a standalone app causes friction, loss of momentum, and abandoned orders.
+- **Solution**: Built a multi-channel AI Agent on Zalo/WhatsApp allowing users to place food orders directly within the chat interface.
+- **Architecture & Cost**: Powered by AWS Bedrock, Agent Core with long-term memory for user preferences, and TinyFish for web scraping, optimizing cost down to ~$0.006 per order.
 
-#### Transitioning to modern application architecture – Microservices
+#### Team 2: Signal Scout (2nd Place Winner) – Multi-Agent Market Intelligence System
+- **Problem**: Competitor and strategic insights are scattered across multiple financial reports, press releases, and public sources.
+- **Solution**: A Multi-Agent pipeline that automatically scrapes and aggregates market signals via TinyFish/Apify to deliver strategic insights and ROI forecasts.
+- **Architecture**: Hosted on AWS Amplify with Cognito authentication, utilizing Bedrock Agents and integrated with Langfuse for agent observability.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+#### Team 3: Team Plan – AI Assistant for Architecture Design & IaC
+- **Problem**: Solutions Architects spend considerable time manually drawing architecture diagrams, estimating costs, and writing deployment scripts.
+- **Solution**: An AI tool that converts natural language or documentation into structured diagrams (Draw.io), cost breakdown reports, and deployment-ready Terraform/CloudFormation code.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Team 4: Team 3K – Shepherd: Real-Time Crowd Management & Monitoring System
+- **Problem**: Localized congestion at airports, supermarkets, and event venues disrupts operational flow.
+- **Solution**: Real-time crowd monitoring using computer vision to track density, identify bottlenecks, and trigger automated dispatch alerts.
+- **Architecture**: Built with Kinesis Video Streams, ECS Fargate running YOLOv26 & ByteTrack, DynamoDB/S3 storage, and an AI Copilot interface for venue operators.
 
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Team 5: Six Pillars – Adaptive Workflow Engine for AML Investigation
+- **Problem**: 90-95% of Anti-Money Laundering (AML) alerts in financial institutions are false positives, leading to costly manual reviews.
+- **Solution**: Multi-Agent system automating KYC checks, transaction flow analysis, and sanction list screening to streamline investigations.
+- **Architecture**: Combines Kinesis Data Streams, XGBoost for rapid alert scoring, Bedrock Sub-agents, and Bedrock Guardrails for safety and compliance.
 
 ### Key Takeaways
 
 #### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- **Focus on Real Business Pain Points**: No matter how sophisticated the tech stack is, system design must start with solving a concrete business problem.
+- **Human-in-the-Loop Control**: Essential for sensitive domains like finance, banking, and enterprise risk management.
 
 #### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- **Multi-Agent Pattern**: Modularizing tasks into specialized sub-agents orchestrated by a supervisor agent improves accuracy and system maintainability.
+- **Cost Optimization & Security**: Balancing native AWS services with third-party tools to ensure enterprise compliance while optimizing operational costs.
 
 #### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- **MVP Scope Control**: In rapid prototyping environments, focus strictly on core user workflows rather than expanding project scope unnecessarily.
+- **Experiential Learning**: Hackathons offer the fastest route to validate ideas, refine technical skills, and build professional networks.
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- **Adopt Agentic Workflows**: Implement multi-agent automation for multi-step enterprise workflows to reduce manual effort.
+- **Leverage Serverless & Managed AI**: Use AWS Bedrock, Agent Core, and Kinesis to construct scalable, event-driven architectures.
+- **Integrate Intuitive Interfaces**: Embed conversational AI experiences into ubiquitous messaging channels (e.g., Zalo, WhatsApp) or internal dashboards.
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the **“FCAJ x Agentic AI Build Week”** provided comprehensive insights into end-to-end GenAI product development—from ideation and architectural design to pitching. Key takeaways include:
 
 #### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Gained strategic technological perspectives directly from AWS tech leaders.
+- Learned practical implementation lessons through real-world team case studies across F&B, Finance/Banking, and Retail domains.
 
 #### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Observed live demonstrations of multi-agent orchestration, real-time video stream processing, and automated IaC generation.
+- Deepened understanding of architectural trade-offs regarding cost, latency, and system safety on AWS.
 
 #### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+- Explored advanced AWS services including **AWS Bedrock**, **Agent Core**, **Kinesis Video Streams**, **ECS Fargate**, and **Amplify**.
 
 #### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Engaged in meaningful technical exchanges with mentors, judges, and fellow builders in the developer community.
 
 #### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+- Effective scope management and team synergy are critical factors for delivering high-quality MVPs under strict time constraints.
+- AI Agents serve as powerful copilots to boost human productivity rather than completely replacing domain expert decision-making.
 
 #### Some event photos
-*Add your event photos here*  
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+{{< report-image src="images/events/fcaj-agentic-ai-build-week.jpg" alt="Attending the FCAJ x Agentic AI Build Week hackathon with fellow builders" caption="On-site at FCAJ x Agentic AI Build Week, alongside other builders during the event." >}}
+
+> Overall, the event provided not only deep technical knowledge but also reshaped perspectives on modern system architecture, practical GenAI applications, and community-driven innovation.

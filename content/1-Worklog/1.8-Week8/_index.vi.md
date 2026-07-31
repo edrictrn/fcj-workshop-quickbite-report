@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xây dựng hệ thống nhật ký thao tác (Operation Logs / Audit Trail) để ghi nhận mọi biến động quan trọng.
+* Triển khai mô-đun Cấu hình Hệ thống động (System Configuration: Phí giao hàng, Thuế, Giờ mở cửa).
+* Xây dựng giao diện Quản lý Cấu hình và Trình xem Logs dành cho Admin.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Research mô hình Audit Logging trong ứng dụng Web <br> - **Thiết kế Audit Log Schema:** <br>&emsp; + Định nghĩa Model `OperationLog` lưu thông tin: action, user_id, details, timestamp <br>&emsp; + Xây dựng Helper Utility `log_utils.py` để ghi log tự động | 20/07/2026 | 20/07/2026 | - `backend/log_utils.py` <br> - `backend/models/system.py` |
+| 3 | - **Gắn Audit Logger vào các Router:** <br>&emsp; + Tự động ghi log khi có thao tác: Đổi trạng thái đơn hàng, Cập nhật menu, Đổi cấu hình hệ thống <br>&emsp; + Xây dựng API `GET /logs` để truy vấn danh sách log | 21/07/2026 | 21/07/2026 | - `backend/routers/logs.py` |
+| 4 | - **Phát triển Dynamic System Settings (`routers/settings.py`):** <br>&emsp; + Xây dựng API đọc/ghi cấu hình hệ thống (phí ship, thuế VAT, giờ đóng/mở cửa) <br>&emsp; + Đảm bảo tính toán đúng phí ship và thuế khi khách hàng tạo đơn mới | 22/07/2026 | 22/07/2026 | - `backend/routers/settings.py` <br> - `backend/settings_utils.py` |
+| 5 | - **Tích hợp Frontend UI:** <br>&emsp; + Xây dựng trang `LogsPage.tsx` xem lịch sử thao tác hệ thống <br>&emsp; + Xây dựng trang `SettingsPage.tsx` cho phép Admin điều chỉnh phí ship và cấu hình vận hành | 23/07/2026 | 23/07/2026 | - `frontend/src/pages/admin/LogsPage.tsx` <br> - `frontend/src/pages/admin/SettingsPage.tsx` |
+| 6 | - **Kiểm thử Luồng Vận Hành:** <br>&emsp; + Thử thay đổi phí giao hàng trên SettingsPage và kiểm tra đơn hàng mới có áp dụng giá mới hay không <br>&emsp; + Kiểm tra log ghi lại chính xác user và hành động vừa thực hiện | 24/07/2026 | 24/07/2026 | - Mã nguồn QuickBite |
 
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **An Toàn & Vận Hành Hệ Thống:**
+  * Hoàn thiện tiện ích `log_utils.py` giúp tự động hóa việc ghi vết mọi hành động quản trị trên hệ thống (Audit Trail).
+  * Đảm bảo tính minh bạch và truy vết sự cố hiệu quả khi vận hành thực tế.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Phát Triển Dự Án QuickBite:**
+  * Xây dựng xong hệ thống Cấu hình Động (`settings_utils.py`), giúp Admin tùy chỉnh phí ship, thuế và trạng thái đóng/mở cửa mà không cần khởi động lại Server.
+  * Tích hợp thành công giao diện `LogsPage.tsx` và `SettingsPage.tsx` trên React Frontend.

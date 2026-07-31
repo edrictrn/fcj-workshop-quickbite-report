@@ -1,57 +1,37 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Deploy an initial Amazon RDS (PostgreSQL) instance to validate the application against a real cloud database.
+* Configure Amazon S3 storage for menu images, kept private from the start instead of public buckets.
+* Implement backend-mediated image upload so the object storage credentials never reach the browser.
+* Migrate local database schema and seed data to the live AWS RDS instance.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Learn about Cloud Database Architecture & Security Groups for Amazon RDS <br> - **RDS Provisioning:** <br>&emsp; + Provision a first Amazon RDS PostgreSQL instance to validate connectivity <br>&emsp; + Configure VPC Subnet Groups and Inbound Security Rules (TCP 5432 from the app tier only) | 22/06/2026 | 22/06/2026 | - <https://cloudjourney.awsstudygroup.com/> <br> - AWS RDS Docs |
+| 3 | - **Database Cloud Migration:** <br>&emsp; + Configure FastAPI database connection to point to AWS RDS endpoint <br>&emsp; + Run Alembic migrations to apply schema and seed initial data onto Amazon RDS | 23/06/2026 | 23/06/2026 | - Alembic Docs <br> - QuickBite README.md |
+| 4 | - Learn about S3 Block Public Access, bucket policies, and why direct-to-client uploads widen the attack surface <br> - **S3 Storage Setup:** <br>&emsp; + Create a private Amazon S3 bucket for menu item images with Block Public Access enabled <br>&emsp; + Confirm no bucket policy or ACL grants public read/write | 24/06/2026 | 24/06/2026 | - AWS S3 Docs <br> - QuickBite README.md |
+| 5 | - **Backend-Mediated Image Upload:** <br>&emsp; + Integrate `boto3` SDK into FastAPI Backend <br>&emsp; + Implement `POST /menu/{id}/image` so the backend validates type/size and writes the object to the private bucket using its own IAM permissions | 25/06/2026 | 25/06/2026 | - Boto3 Docs <br> - FastAPI Docs |
+| 6 | - **Testing & Validation:** <br>&emsp; + Test image upload flow from React Frontend through the FastAPI endpoint into the private bucket <br>&emsp; + Confirm the object is not reachable via a direct public S3 URL <br>&emsp; + Perform health checks on the RDS connection | 26/06/2026 | 26/06/2026 | - QuickBite Codebase |
 
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **AWS & Cloud Foundation:**
+  * Provisioned and configured a first Amazon RDS PostgreSQL instance with restrictive VPC Security Group rules, as a stepping stone toward the Multi-AZ instance built later with Terraform.
+  * Created a private S3 bucket with Block Public Access enabled for menu images, avoiding public ACLs and public bucket policies from day one.
+  * Learned why direct client-to-S3 uploads (presigned URLs) were not the right fit here, since QuickBite instead routes uploads through the backend so the object storage permissions stay on the server side.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **QuickBite Project Development:**
+  * Successfully migrated the local database schema to Amazon RDS using Alembic migrations.
+  * Integrated `boto3` SDK into FastAPI so the backend itself uploads validated images to the private bucket.
+  * Connected React Frontend menu management to the new upload endpoint; images are served back through the API rather than a public S3 URL.
+  * Verified end-to-end cloud data persistence between FastAPI, Amazon RDS, and Amazon S3.

@@ -1,57 +1,34 @@
 ---
 title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-13
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design and initialize database SQL Views on PostgreSQL/SQLite for business analytics.
+* Develop reporting APIs to fetch key operational metrics (Revenue, Total Orders, Top Selling Items).
+* Implement CSV Export services from the FastAPI backend.
+* Integrate the Admin Dashboard and Report pages on the React Frontend.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Research reporting query optimization using SQL Views <br> - **Create SQL Views:** <br>&emsp; + Write SQL script for daily/monthly revenue views (`views_postgres.sql`) <br>&emsp; + Create views summarizing top items and order status distribution | 07/13/2026 | 07/13/2026 | - `backend/sql/views_postgres.sql` <br> - QuickBite README.md |
+| 3 | - **Develop Reporting Router (`routers/reports.py`):** <br>&emsp; + Build `GET /reports/dashboard` endpoint to retrieve overall metrics <br>&emsp; + Implement detailed analytical endpoints for admin operations | 07/14/2026 | 07/14/2026 | - `backend/routers/reports.py` <br> - FastAPI Docs |
+| 4 | - **Implement CSV Export Service:** <br>&emsp; + Build `GET /reports/export/orders` to export order history to CSV <br>&emsp; + Build `GET /reports/export/revenue` for financial CSV reports | 07/15/2026 | 07/15/2026 | - `backend/routers/reports.py` |
+| 5 | - **Integrate Admin Dashboard UI (Frontend):** <br>&emsp; + Connect React MetricCards to Report APIs <br>&emsp; + Add Download CSV buttons for Admin report management | 07/16/2026 | 07/16/2026 | - `frontend/src/pages/admin/ReportPage.tsx` <br> - `frontend/src/components/MetricCard.tsx` |
+| 6 | - **Testing & Data Validation:** <br>&emsp; + Seed mock database records (`seed_postgres.sql`) and verify reporting metric accuracy <br>&emsp; + Validate CSV file formats in Microsoft Excel and Google Sheets | 07/17/2026 | 07/17/2026 | - `backend/sql/seed_postgres.sql` |
 
 
 ### Week 7 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Database & Cloud Foundation:**
+  * Defined and executed SQL Views on Amazon RDS PostgreSQL to optimize report query performance.
+  * Synchronized SQL View definitions between local SQLite and cloud PostgreSQL.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **QuickBite Project Development:**
+  * Completed the Reporting Router (`routers/reports.py`) supporting dashboard metrics and CSV exports.
+  * Successfully integrated the Admin Dashboard and Report Page (`ReportPage.tsx`) on the React Frontend.
